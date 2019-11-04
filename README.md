@@ -1,6 +1,6 @@
 # PA-GAN
 
-This is the companion code for the algorithm reported in the paper Progressive Augmentation of GANs by Dan Zhang et al. The paper can be found here https://arxiv.org/abs/1901.10422. The code assists the users to
+This is the companion code for the algorithm reported in the paper Progressive Augmentation of GANs by Dan Zhang and Anna Khoreva. The paper can be found here https://arxiv.org/abs/1901.10422. The code assists the users to
 reproduce and extend the results reported in the paper. Please cite the above paper when reporting, reproducing or extending the results.
 
 ## Purpose of the project
