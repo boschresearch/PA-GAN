@@ -1,17 +1,17 @@
-// Copyright (c) 2019 Robert Bosch GmbH
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published
-// by the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# Copyright (c) 2019 Robert Bosch GmbH
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published
+# by the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import tensorflow as tf
 
@@ -58,7 +58,7 @@ def pa_conv2d(input_, output_dim, aug_bits, aug_level, max_aug_level=0, k_h=3, k
         input_shape = input_.get_shape().as_list()
         # create an augmented input
         # broadcast the bit value over (height, width)
-        aug_bit_ch = tf.tile(tf.cast(aug_bits, input_.dtype), [1, input_shape[1], input_shape[2], 1])
+        aug_bit_ch = tf.tile(tf.expand_dims(tf.expand_dims(tf.cast(aug_bits, input_.dtype),axis=1),axis=1), [1, input_shape[1], input_shape[2], 1])
         aug_input  = tf.concat([input_, aug_bit_ch], axis=3)
 
         # conv. kernel for data feats
